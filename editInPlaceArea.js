@@ -1,7 +1,15 @@
-const EditInPlaceArea = clone(EditInPlaceField)
+function EditInPlaceArea(id, parent, value) {
+    this.id = id;
+    this.value = value || 'default value';
+    this.parentElement = parent;
 
-// Override methods
-EditInPlaceArea.createElements = function (id) {
+    this.createElements(this.id);
+    this.attachEvents();
+};
+
+// Add certain methods so that augment won't include them
+
+EditInPlaceArea.prototype.createElements = function (id) {
     this.containerElement = document.createElement('div');
     this.parentElement.appendChild(this.containerElement);
 
@@ -26,7 +34,7 @@ EditInPlaceArea.createElements = function (id) {
     this.convertToText();
 };
 
-EditInPlaceArea.convertToEditable = function () {
+EditInPlaceArea.prototype.convertToEditable = function () {
     this.staticElement.style.display = 'none';
     this.fieldElement.style.display = 'block';
     this.saveButton.style.display = 'inline';
@@ -35,7 +43,7 @@ EditInPlaceArea.convertToEditable = function () {
     this.setValue(this.value);
 };
 
-EditInPlaceArea.convertToText = function () {
+EditInPlaceArea.prototype.convertToText = function () {
     this.fieldElement.style.display = 'none';
     this.saveButton.style.display = 'none';
     this.cancelButton.style.display = 'none',
@@ -43,3 +51,5 @@ EditInPlaceArea.convertToText = function () {
 
     this.setValue(this.value);
 }
+
+augment(EditInPlaceArea, EditInPlaceMixin);
