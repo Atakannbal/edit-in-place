@@ -1,10 +1,7 @@
-function EditInPlaceArea(id, parent, value) {
-    EditInPlaceField.call(this, id, parent, value);
-}
+const EditInPlaceArea = clone(EditInPlaceField)
 
-extend(EditInPlaceArea, EditInPlaceField);
-
-EditInPlaceArea.prototype.createElements = function (id) {
+// Override methods
+EditInPlaceArea.createElements = function (id) {
     this.containerElement = document.createElement('div');
     this.parentElement.appendChild(this.containerElement);
 
@@ -29,7 +26,7 @@ EditInPlaceArea.prototype.createElements = function (id) {
     this.convertToText();
 };
 
-EditInPlaceArea.prototype.convertToEditable = function () {
+EditInPlaceArea.convertToEditable = function () {
     this.staticElement.style.display = 'none';
     this.fieldElement.style.display = 'block';
     this.saveButton.style.display = 'inline';
@@ -38,7 +35,7 @@ EditInPlaceArea.prototype.convertToEditable = function () {
     this.setValue(this.value);
 };
 
-EditInPlaceArea.prototype.convertToText = function () {
+EditInPlaceArea.convertToText = function () {
     this.fieldElement.style.display = 'none';
     this.saveButton.style.display = 'none';
     this.cancelButton.style.display = 'none',

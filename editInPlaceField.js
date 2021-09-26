@@ -1,13 +1,13 @@
-function EditInPlaceField(id, parent, value) {
-    this.id = id;
-    this.value = value || 'default value';
-    this.parentElement = parent;
+const EditInPlaceField = {
+    configure: function(id, parent, value) {
+        this.id = id;
+        this.value = value || 'default value';
+        this.parentElement = parent;
 
-    this.createElements(this.id);
-    this.attachEvents();
-}
+        this.createElements(this.id);
+        this.attachEvents();
+    },
 
-EditInPlaceField.prototype = {
     createElements: function (id) {
         this.containerElement = document.createElement('div');
         this.parentElement.appendChild(this.containerElement);
@@ -41,7 +41,7 @@ EditInPlaceField.prototype = {
         this.cancelButton.addEventListener('click', function () { that.cancel(); })
     },
 
-    convertToEditable: function () {
+     convertToEditable: function () {
         this.staticElement.style.display = 'none';
         this.fieldElement.style.display = 'inline';
         this.saveButton.style.display = 'inline';
@@ -50,7 +50,7 @@ EditInPlaceField.prototype = {
         this.setValue(this.value);
     },
 
-    save: function () {
+     save: function () {
         this.value = this.getValue();
         var that = this;
         var callback = {
@@ -67,6 +67,7 @@ EditInPlaceField.prototype = {
     cancel: function () {
         this.convertToText();
     },
+
 
     convertToText: function () {
         this.fieldElement.style.display = 'none';
