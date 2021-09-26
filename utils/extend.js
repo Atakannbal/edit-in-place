@@ -3,7 +3,7 @@ function extend(subClass, superClass) {
     F.prototype = superClass.prototype;
     subClass.prototype = new F();
     subClass.prototype.constructor = subClass;
-    subClass.superclass = superClass.prototype;
+    subClass.superclass = superClass;
 
     if (superClass.prototype.constuctor == Object.prototype.constructor) {
         superClass.prototype.constructor = superClass;

@@ -1,5 +1,5 @@
 function EditInPlaceArea(id, parent, value) {
-    EditInPlaceField.call(this, id, parent, value);
+    EditInPlaceArea.superclass.call(this, id, parent, value);
 }
 
 extend(EditInPlaceArea, EditInPlaceField);
