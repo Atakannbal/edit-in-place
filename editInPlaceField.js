@@ -1,14 +1,15 @@
-function EditInPlaceField(id, parent, value) {
-    this.id = id;
-    this.value = value || 'default value';
-    this.parentElement = parent;
+class EditInPlaceField {
 
-    this.createElements(this.id);
-    this.attachEvents();
-}
+    constructor(id, parent, value) {
+        this.id = id;
+        this.value = value || 'default value';
+        this.parentElement = parent;
 
-EditInPlaceField.prototype = {
-    createElements: function (id) {
+        this.createElements(this.id);
+        this.attachEvents();
+    };
+
+    createElements(id) {
         this.containerElement = document.createElement('div');
         this.parentElement.appendChild(this.containerElement);
 
@@ -32,25 +33,25 @@ EditInPlaceField.prototype = {
         this.containerElement.appendChild(this.cancelButton);
 
         this.convertToText();
-    },
+    }
 
-    attachEvents: function () {
+    attachEvents() {
         var that = this;
         this.staticElement.addEventListener('click', function () { that.convertToEditable(); })
         this.saveButton.addEventListener('click', function () { that.save(); })
         this.cancelButton.addEventListener('click', function () { that.cancel(); })
-    },
+    }
 
-    convertToEditable: function () {
+    convertToEditable() {
         this.staticElement.style.display = 'none';
         this.fieldElement.style.display = 'inline';
         this.saveButton.style.display = 'inline';
         this.cancelButton.style.display = 'inline';
 
         this.setValue(this.value);
-    },
+    }
 
-    save: function () {
+    save() {
         this.value = this.getValue();
         var that = this;
         var callback = {
@@ -62,27 +63,27 @@ EditInPlaceField.prototype = {
         (() => {
             callback.success();
         })()
-    },
+    }
 
-    cancel: function () {
+    cancel() {
         this.convertToText();
-    },
+    }
 
-    convertToText: function () {
+    convertToText() {
         this.fieldElement.style.display = 'none';
         this.saveButton.style.display = 'none';
         this.cancelButton.style.display = 'none';
         this.staticElement.style.display = 'inline';
 
         this.setValue(this.value);
-    },
+    }
 
-    setValue: function (value) {
+    setValue(value) {
         this.fieldElement.value = value;
         this.staticElement.innerHTML = value;
-    },
+    }
 
-    getValue: function () {
+    getValue() {
         return this.fieldElement.value;
     }
 };
