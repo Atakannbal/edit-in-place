@@ -1,6 +1,5 @@
-const EditInPlaceArea = clone(EditInPlaceField)
+const EditInPlaceArea = Object.create(EditInPlaceField);
 
-// Override methods
 EditInPlaceArea.createElements = function (id) {
     this.containerElement = document.createElement('div');
     this.parentElement.appendChild(this.containerElement);
@@ -42,4 +41,4 @@ EditInPlaceArea.convertToText = function () {
     this.staticElement.style.display = 'block';
 
     this.setValue(this.value);
-}
+};

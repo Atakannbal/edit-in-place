@@ -15,14 +15,13 @@
 </html>
 
 
-<script src="utils/clone.js"></script>
 <script src="editInPlaceField.js"></script>
 <script src="editInPlaceArea.js"></script>
 
 <script>
-    const title = clone(EditInPlaceField)
-    title.configure('title-id', document.getElementById('text-input'), 'Title Here');
+    EditInPlaceField1 = Object.create(EditInPlaceField)
+    EditInPlaceField1.configure('title-id', document.getElementById('text-input'), 'Title Here');
 
-    const description = clone(EditInPlaceArea)
-    description.configure('desc-id', document.getElementById('text-area'), 'Description here');
+    EditInPlaceArea1 = Object.create(EditInPlaceArea)
+    EditInPlaceArea1.configure('desc-id', document.getElementById('text-area'), 'Description here');
 </script>
