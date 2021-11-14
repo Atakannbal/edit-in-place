@@ -1,4 +1,4 @@
-class EditInPlaceField {
+export default class EditInPlaceField {
 
     constructor(id, parent, value) {
         this.id = id;

@@ -1,4 +1,5 @@
-class EditInPlaceArea extends EditInPlaceField {
+import EditInPlaceField from "./edit-in-place-field";
+export default class EditInPlaceArea extends EditInPlaceField {
 
     constructor(id, parent, value) {
         super(id, parent, value)
