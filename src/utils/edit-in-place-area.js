@@ -7,25 +7,25 @@ export default class EditInPlaceArea extends EditInPlaceField {
 
     createElements(id) {
         this.containerElement = document.createElement('div');
-        this.parentElement.appendChild(this.containerElement);
+        this.parentElement.append(this.containerElement);
 
         this.staticElement = document.createElement('p');
-        this.containerElement.appendChild(this.staticElement);
+        this.containerElement.append(this.staticElement);
         this.staticElement.innerHTML = this.value;
 
         this.fieldElement = document.createElement('textarea');
         this.fieldElement.value = this.value;
-        this.containerElement.appendChild(this.fieldElement);
+        this.containerElement.append(this.fieldElement);
 
         this.saveButton = document.createElement('input');
         this.saveButton.type = 'button';
         this.saveButton.value = 'Save';
-        this.containerElement.appendChild(this.saveButton);
+        this.containerElement.append(this.saveButton);
 
         this.cancelButton = document.createElement('input');
         this.cancelButton.type = 'button';
         this.cancelButton.value = 'Cancel';
-        this.containerElement.appendChild(this.cancelButton);
+        this.containerElement.append(this.cancelButton);
 
         this.convertToText();
     }
