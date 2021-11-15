@@ -9,7 +9,7 @@ export default class EditInPlaceField {
         this.attachEvents();
     };
 
-    createElements(id) {
+    createElements() {
         this.containerElement = document.createElement('div');
         this.parentElement.append(this.containerElement);
 
