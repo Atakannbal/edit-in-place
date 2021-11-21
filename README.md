@@ -1,6 +1,8 @@
 # Example: Edit-in-Place
 
-To demonstrate inheritance in JavaScript, same example is applied with different techniques on three branches using classical inheritance, prototypal inheritance, and mixin classes.
+To demonstrate inheritance in JavaScript, same example is applied with different techniques on different branches.
+
+Master branch is being updated to use classical inheritance using ES6 classes and syntax
 
 Imagine that you have been given a task: write a modular, reusable API for creating and managing edit-in-place fields (edit-in-place refers to a normal block of text in a web page that when clicked turns into a form field and several buttons that allow that block of text to be edited).
 
