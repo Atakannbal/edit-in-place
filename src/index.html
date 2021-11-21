@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <div id="text-input"></div>
+    <br />
+    <div id="text-area"></div>
+  </head>
+  <body></body>
+</html>
+
+<script type="module">
+
+  import { Interface, EditInPlaceField, EditInPlaceArea,  } from './index.js'
+
+  const EditableField = new Interface('EditableField', [
+    'createElements',
+    'attachEvents',
+    'convertToEditable',
+    'save',
+    'cancel',
+    'convertToText',
+    'setValue',
+    'getValue'
+  ])
+
+  const title = new EditInPlaceField(
+    'title-id',
+    document.getElementById('text-input'),
+    'Title Here'
+  )
+  const desc = new EditInPlaceArea(
+    'desc-id',
+    document.getElementById('text-area'),
+    'Description Here'
+  )
+
+  function setFieldValueAndSave(field, value = 'Hi!') {
+    // Duck typing
+    Interface.ensureImplements(field, EditableField)
+
+    field.setValue(value)
+    field.save()
+    
+    return value
+  }
+
+</script>

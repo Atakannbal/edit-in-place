@@ -36,10 +36,9 @@ export default class EditInPlaceField {
     }
 
     attachEvents() {
-        var that = this;
-        this.staticElement.addEventListener('click', function () { that.convertToEditable(); })
-        this.saveButton.addEventListener('click', function () { that.save(); })
-        this.cancelButton.addEventListener('click', function () { that.cancel(); })
+        this.staticElement.addEventListener('click', () => { this.convertToEditable(); })
+        this.saveButton.addEventListener('click',  () => { this.save(); })
+        this.cancelButton.addEventListener('click',  () => { this.cancel(); })
     }
 
     convertToEditable() {
@@ -53,9 +52,8 @@ export default class EditInPlaceField {
 
     save() {
         this.value = this.getValue();
-        var that = this;
         var callback = {
-            success: function () { that.convertToText() },
+            success: function () { this.convertToText() },
             failure: function () { alert('Error saving value.'); }
         };
 
