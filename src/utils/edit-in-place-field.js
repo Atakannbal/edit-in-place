@@ -53,7 +53,7 @@ export default class EditInPlaceField {
     save() {
         this.value = this.getValue();
         var callback = {
-            success: function () { this.convertToText() },
+            success: () => { this.convertToText() },
             failure: function () { alert('Error saving value.'); }
         };
 
