@@ -14,5 +14,8 @@
     "eslint-plugin-unicorn": "^38.0.1",
     "prettier": "^2.4.1",
     "prettier-config-standard": "^4.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
