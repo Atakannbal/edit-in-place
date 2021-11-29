@@ -35,8 +35,8 @@ Interface.ensureImplements = function (object, ...interfaces) {
     )
   }
 
-  for (const interface of interfaces) {
-    const { methods, name, constructor } = interface
+  for (const _interface of interfaces) {
+    const { methods, name, constructor } = _interface
 
     if (constructor !== Interface) {
       throw new Error(
