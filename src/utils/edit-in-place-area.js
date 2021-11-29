@@ -1,4 +1,4 @@
-import EditInPlaceField from "./edit-in-place-field";
+import EditInPlaceField from "./edit-in-place-field.js";
 export default class EditInPlaceArea extends EditInPlaceField {
 
     constructor(id, parent, value) {
