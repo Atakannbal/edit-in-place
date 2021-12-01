@@ -10,7 +10,7 @@
     <button id='desc-button'>Set description to Hello World!</button>
     <button id='error-button'>See how error looks when type check fails!</button>
 
-    <pre id='error-msg' style="color: red"></pre>
+    <pre id='error-field' style="color: red"></pre>
 
     <div id="text-input"></div>
     <br />
@@ -19,62 +19,10 @@
   <body></body>
 </html>
 
+<script src='./public/js/dollar.js'></script>
+<script> installHelper(window, '$') </script>
+
 <script type="module">
-
-  import { Interface, EditInPlaceField, EditInPlaceArea,  } from './index.js'
-
-  const EditableField = new Interface('EditableField', [
-    'createElements',
-    'attachEvents',
-    'convertToEditable',
-    'save',
-    'cancel',
-    'convertToText',
-    'setValue',
-    'getValue'
-  ])
-
-  const title = new EditInPlaceField(
-    'title-id',
-    document.getElementById('text-input'),
-    'Click Here to Edit Title'
-  )
-  const desc = new EditInPlaceArea(
-    'desc-id',
-    document.getElementById('text-area'),
-    'Click Here to Edit Description'
-  )
-
-  function setFieldValueAndSave(field, value = 'Hi!') {
-    // Duck typing
-    Interface.ensureImplements(field, EditableField)
-
-    field.setValue(value)
-    field.save()
-    
-    return value
-  }
-
-  const setTitleButton = document.getElementById('title-button')
-  const setDescriptionButton = document.getElementById('desc-button')
-  const seeErrorButton = document.getElementById('error-button')
-  const errorField = document.getElementById('error-msg')
-
-  setTitleButton.addEventListener('click', () => {
-    setFieldValueAndSave(title)
-  })
-
-  setDescriptionButton.addEventListener('click', () => {
-    setFieldValueAndSave(desc, 'Hello World!')
-  })
-  
-  // Object to the method setFieldValueAndSave does not implement the EditableField interface, therefore it will cause an error.
-  seeErrorButton.addEventListener('click', () => {
-    try {
-      setFieldValueAndSave({})
-    } catch (error) {
-      errorField.innerHTML = error
-    }
-  })
-
+  import { HomePage } from './pages/index.js'
+  HomePage.init()
 </script>
