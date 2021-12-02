@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    
+  </head>
+  <body>
     <button id='title-button'>Set title to Hi!</button>
     <button id='desc-button'>Set description to Hello World!</button>
     <button id='error-button'>See how error looks when type check fails!</button>
@@ -15,14 +16,26 @@
     <div id="text-input"></div>
     <br />
     <div id="text-area"></div>
-  </head>
-  <body></body>
+
+    <form id='form-id'>
+      <label for='uname'> Username </label> <br>
+      <input type="text" name='name' id='uname'> <br>
+      <label for='upassword'> Password </label> <br>
+      <input type="text" name='password' id='upassword'>
+
+      <button type='submit'> Submit </button>
+    </form>
+
+    <div id='output-id'></div>
+
+  </body>
 </html>
 
 <script src='./public/js/dollar.js'></script>
 <script> installHelper(window, '$') </script>
 
 <script type="module">
-  import { HomePage } from './pages/index.js'
+  import { HomePage, RegistrationPage } from './pages/index.js'
   HomePage.init()
+  RegistrationPage.init()
 </script>
