@@ -34,7 +34,7 @@ export default  {
       formEl = $(FORM_ID).getElement()
       outputEl = $(OUTPUT_ID).getElement()
 
-      addEvent(formEl, 'submit', this.handleSubmit)
+      addEvent(formEl, 'submit', (e) => this.handleSubmit(e))
     },  
 }
 
