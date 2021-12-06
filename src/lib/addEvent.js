@@ -54,8 +54,4 @@ const EventCache = function() {
 
 addEvent(window,'unload',EventCache.flush);
 
-export { 
-  addEvent
-}
-
-
+export default addEvent

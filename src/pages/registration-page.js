@@ -1,4 +1,4 @@
-import { addEvent } from "../public/js/library.js";
+import addEvent from "/lib/addEvent.js";
 
 const FORM_ID = 'form-id';
 const OUTPUT_ID = 'output-id';

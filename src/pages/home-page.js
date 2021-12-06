@@ -1,7 +1,7 @@
 import EditInPlaceArea  from '../utils/edit-in-place-area.js'
 import EditInPlaceField from '../utils/edit-in-place-field.js'
 import setValue from '../utils/set-and-save-field-value.js'
-import { addEvent } from '../public/js/library.js'
+import addEvent from '/lib/addEvent.js'
 
 const TITLE_BUTTON_ID = 'title-button'
 const DESCRIPTION_BUTTON_ID = 'desc-button'
