@@ -4,9 +4,6 @@ export default class EditInPlaceField {
         this.id = id;
         this.value = value || 'default value';
         this.parentElement = parent;
-
-        this.createElements(this.id);
-        this.attachEvents();
     };
 
     createElements() {

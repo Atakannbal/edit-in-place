@@ -1,5 +1,4 @@
-import EditInPlaceArea  from '../utils/edit-in-place-area.js'
-import EditInPlaceField from '../utils/edit-in-place-field.js'
+import EditInPlaceElementFactory from '../utils/edit-in-place-factory.js'
 import setValue from '../utils/set-and-save-field-value.js'
 import addEvent from '/lib/addEvent.js'
 
@@ -19,17 +18,8 @@ export default {
     const textAreaParent = $(TEXT_AREA_ID).getElement()
     const textInputParent = $(TEXT_INPUT_ID).getElement()
 
-    const title = new EditInPlaceField(
-      'title-id',
-      textInputParent,
-      'Click Here to Edit Title' 
-    )
-
-    const desc = new EditInPlaceArea(
-      'desc-id',
-      textAreaParent,
-      'Click Here to Edit Description'
-    ) 
+    const title = new EditInPlaceElementFactory('Field', {id: 'title-id', parent: textInputParent, placeholder: 'Click Here to Edit Title'})
+    const desc = new EditInPlaceElementFactory('Area', {id: 'desc-id', parent: textAreaParent, placeholder: 'Click Here to Edit Description'})
     
     addEvent(titleButton, 'click', () => setValue(title, 'Hi!'))
     addEvent(descriptionButton, 'click', () => setValue(desc, 'Hellow World!'))
